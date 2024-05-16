@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  wpss:
+    platform: linux/amd64
+    build: .
+    ports:
+      - "50690:50690"
+    volumes:
+      - .:/app
