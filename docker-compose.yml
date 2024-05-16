@@ -8,3 +8,7 @@ services:
       - "50690:50690"
     volumes:
       - .:/app
+    deploy:
+      resources:
+        limits:
+          cpus: '3.0'
