@@ -11,7 +11,9 @@ express()
     .use(express.urlencoded({ extended: true }))
 
     .all('/ss', async (req, res) => {
-        const { url, selector, transparent } = req.method === 'POST' ? req.body : req.query
+        let { url, selector, transparent } = req.method === 'POST' ? req.body : req.query
+
+        url = url.replace(/127.0.0.1|localhost|0.0.0.0/g, 'host.docker.internal')
 
         try {
             const screenshot = await browser.ss(url, selector, transparent)

@@ -8,6 +8,8 @@ services:
       - "50690:50690"
     volumes:
       - .:/app
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     deploy:
       resources:
         limits:
